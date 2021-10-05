@@ -1,0 +1,81 @@
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+    font-size: 60px;
+    perspective: 10em;
+    perspective-origin: 50% calc(50% + 3em);
+}
+
+.scene {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 30s infinite linear;
+}
+
+@keyframes rotate {
+    to { transform: rotateY(-360deg);}
+}
+
+.sign {
+    width: 3em;
+    height: 2em;
+    line-height: 2em;
+    transform-style: preserve-3d;
+    top: -1em;
+    left: -3em;
+
+    position: absolute;
+
+}
+
+.left, .right, .front, .back {
+    background: white;
+    position: absolute;
+    width: 6em;
+    height: 2em;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7) inset;
+}
+
+.front {
+    transform: translateZ(3em);
+}
+.right {
+    transform: rotateY(90deg) translateZ(3em);
+}
+.back {
+    transform: rotateY(180deg) translateZ(3em);
+}
+.left {
+    transform: rotateY(270deg) translateZ(3em);
+}
+
+span {
+    position: absolute;
+    animation: textSlide 10s linear infinite;
+}
+
+.left span {
+    animation-delay: 5s;
+	left: -100%;
+}
+
+.right span {
+    animation-delay: 5s;
+	left: -100%;
+}
+
+@keyframes textSlide {
+	from { left: 100%;}
+	to {left: -100%;}
+}
+
+.inner {
+    font-family: sans-serif;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
